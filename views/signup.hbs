@@ -1,0 +1,54 @@
+    <div class="container" id="login">
+      {{#if error}}
+          <div class="red-text center"><h3>{{error}}</h3></div>
+    {{/if}}
+    <h1 class="center orange-text">Sign UP</h1>
+        <form class="col s12" action="/signup" method="POST" enctype="multipart/form-data">
+        <div class="row">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix orange-text">account_circle</i>
+                  <input id="icon_prefix" type="text" class="validate" name="name">
+                  <label for="icon_prefix"  class="orange-text"> Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix orange-text">email</i>
+                    <input id="email" type="email" class="validate" name="email">
+                    <label for="email"  class="orange-text">Email</label>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+                <div class="file-field input-field col s4 ">
+                    <div class="btn orange">
+                        <span>Profile Icon</span>
+                        <input type="file" name="profile">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            <div class="input-field col s4">
+                  <i class="material-icons prefix orange-text">security</i>
+                    <input id="password" type="password" class="validate" name="password">
+                    <label for="password"  class="orange-text">Passowrd</label>
+                </div>
+                 <div class="input-field col s4">
+                   <i class="material-icons prefix orange-text">account_circle</i>
+                  <input id="icon_prefix1" type="text" class="validate" name="shop">
+                  <label for="icon_prefix1"  class="orange-text"> SHOP</label>  
+          </div>  
+            
+         </div>
+         <div class="input-field center">
+             <button class="btn waves-effect waves-light center orange pulse" type="submit" name="action">Submit
+                <i class="material-icons right">touch_app</i>
+              </button>
+         </div>
+        </form>
+    </div>
+     <script>
+          $(document).ready(function(){
+    $('select').formSelect();
+  });
+      </script>

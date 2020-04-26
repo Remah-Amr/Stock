@@ -1,0 +1,21 @@
+  <div class="container">
+    <h2 class="center orange-text">ALL Users</h2>
+    <ul class="collection ">
+{{#each users}}
+ <li class="collection-item avatar">
+        <i class="material-icons circle"> 
+            <img src="{{imageUrl}}" width="40px" height="40px" >
+       </i>
+        <span class="title">{{name}}</span>
+        <p class="grey-text">{{email}}</p>
+        <a href="/private/{{name}}" class="secondary-content orange-text">
+          <span>send msg <i class="material-icons ">create</i></span>
+        </a>
+      </li>
+
+{{/each}}
+    </ul>
+  </div>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

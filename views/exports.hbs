@@ -1,0 +1,73 @@
+  <div class="container">
+      {{#if error}}
+          <div class="red-text center"><h3>{{error}}</h3></div>
+    {{/if}}
+    <h2 class="center orange-text">Exports</h2>
+    <ul class="collection ">
+{{#each orders}}
+<li class="collection-item avatar">
+        {{!-- <i class="material-icons circle"> 
+            <img src="{{imageUrl}}" width="40px" height="40px" >
+       </i> --}}
+        <span class="title orange-text">{{item}}</span>
+        <p class="black-text"><strong>qty :{{qty}},cost: {{cost}}</strong></p>
+        <a  href = "invoice/{{_id}}"class="secondary-content">
+          {{!-- <i class="material-icons orange-text">mood</i> --}}
+          <span class="orange-text">Invoice</span>
+        </a>
+      </li>
+{{/each}}  
+    <li class="collection-item"><strong>All COST => {{allCost}}</strong></li>
+    </ul>
+    <a class="btn orange modal-trigger" href="#products" >ADD order  <i class="material-icons right">add</i></a>
+  </div>
+
+         <div id="products" class="modal">
+          <div class="modal-content">
+           <h1 class="center orange-text">Add New Order</h1>
+        <form class="col s12" action="/exports/new" method="POST" >
+  
+              <div class="row">
+                <div class="input-field col s4">
+                  <select name="item">
+                    <option value="" disabled selected>Select Product</option>
+                    {{#each products}}
+                    <option value="{{title}}">{{title}}</option>
+                    {{/each}}
+            </select>
+            <label>Product Select</label>
+                </div>
+                 <div class="input-field col s4">
+                  <i class="material-icons prefix orange-text">account_circle</i>
+                  <input id="icon_prefix3" type="number" class="validate" name="qty">
+                  <label for="icon_prefix3"  class="orange-text">Qty</label>
+                </div>
+                     <div class="input-field col s4">
+                  <i class="material-icons prefix orange-text">account_circle</i>
+                  <input id="icon_prefix2" type="text" class="validate" name="to">
+                  <label for="icon_prefix2"  class="orange-text">Customer</label>
+                </div>
+              </div>
+
+         <div class="input-field center">
+             <button class="btn waves-effect waves-light center orange pulse" type="submit" name="action">Submit
+                <i class="material-icons right">touch_app</i>
+              </button>
+         </div>
+         <input type="hidden" name="from" value="{{person.shop}}">
+         <input type="hidden" name="userId" value="{{person._id}}">
+        </form>
+          </div>
+        </div>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+  </script>
+   <script>
+          $(document).ready(function(){
+    $('select').formSelect();
+  });
+      </script>

@@ -1,0 +1,58 @@
+ <div class="navbar-fixed">
+    <nav class="nav-wrapper orange">
+      <div class="container">
+        <a href="#" class="brand-logo">STOCK</a>
+        <!-- only show on small screens  -->
+        <a href="#" class="sidenav-trigger" data-target="mobile-links">
+          
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/product/all">Products</a></li>
+          <li><a href="/exports">EXPORTS</a></li>
+          <li><a href="/imports">IMPORTS</a></li>
+          <li><a href="/users">USERS</a></li>
+          {{#if user}}
+          <li><a href="/logout" class="btn white indigo-text">Logout</a></li>
+          {{else}}
+          <li><a href="/signup" class="btn white indigo-text">SingUp</a></li>
+          <li><a href="/login" class="btn white indigo-text">Login</a></li>
+          {{/if}}
+          <!-- <li><a href="" class="btn-floating z-depth-0 indigo darken-4" id="my">
+            <img src="https://res.cloudinary.com/dqfrk92mp/image/upload/v1582922694/fb2i7jczxdsefpw6zsdc.png" width="40px" height="40px">
+          </a></li> -->
+          {{#if user}}
+          <li>
+           
+            <img src="{{person.imageUrl}}" width="110px" height="64px">
+         </li>
+         {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <ul class="sidenav" id="mobile-links">
+  {{#if user}}
+    <li>
+      <img src="{{person.imageUrl}}" height="318px" width="300px">
+  </li>
+  {{/if}}
+     <li><a href="/product/all">Products</a></li>
+    <li><a href="/exports">EXPORTS</a></li>
+    <li><a href="/imports">IMPORTS</a></li>
+    <li><a href="/users">USERS</a></li>
+    {{#if user}}
+    <li><a href="/logout">Logout</a></li>
+    {{else}}
+      <li><a href="/signup">SingUp</a></li>
+      <li><a href="/login">Login</a></li>
+    {{/if}}
+  </ul>
+  
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+  </script>

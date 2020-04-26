@@ -1,0 +1,33 @@
+    <div class="container" id="login">
+     {{#if error}}
+          <div class="red-text center"><h3>{{error}}</h3></div>
+    {{/if}}
+    <h1 class="center orange-text">Login </h1>
+        <form class="col s12" action="/login" method="POST">
+        <div class="row">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix orange-text">email</i>
+                    <input id="email" type="email" class="validate" name="email">
+                    <label for="email"  class="orange-text">Email</label>
+                </div>
+                    <div class="input-field col s6">
+                  <i class="material-icons prefix orange-text">security</i>
+                    <input id="password" type="password" class="validate" name="password">
+                    <label for="password"  class="orange-text">Passowrd</label>
+                </div>
+              </div>
+        </div>
+     
+         <div class="input-field center">
+             <button class="btn waves-effect waves-light center orange " type="submit" name="action">Submit
+                <i class="material-icons right">touch_app</i>
+              </button>
+
+         </div>
+               {{!-- <h4 class="center orange-text">Hello , I have msg to you</h4>   --}}
+
+        
+        </form>
+     
+    </div>
