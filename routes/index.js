@@ -74,6 +74,11 @@ router.post('/exports/new',async (req,res) => {
         }
         const newOrder = new Order({item,qty,userId,from,to,cost : product.price * qty})
         await newOrder.save()
+        const product2 = await Product.findOne({title:item,shop:to})
+        if(product2){
+            product2.qty = product2.qty + +qty
+            await product2.save()
+        }
         req.flash('error',"This order was added")
         return res.redirect('/exports')
 
@@ -108,6 +113,11 @@ router.post('/imports/new',async (req,res)=>{
         await product.save()
         const newOrder = new Order({item,qty,userId,from,to,cost : product.price * qty})
         await newOrder.save()
+        var product2 = await Product.findOne({title:item,shop:from})
+        if(product2){
+            product2.qty = product2.qty - qty
+            await product2.save()
+        }
         req.flash('error',"This order was added")
         return res.redirect('/imports')
     } catch(err){
